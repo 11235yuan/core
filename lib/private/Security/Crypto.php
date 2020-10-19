@@ -90,7 +90,7 @@ class Crypto implements ICrypto {
 		}
 		$this->cipher->setPassword($password);
 
-		$iv = $this->random->generate($this->ivLength);
+		$iv = \random_bytes($this->ivLength);
 		$this->cipher->setIV($iv);
 
 		$ciphertext = \bin2hex($this->cipher->encrypt($plaintext));
